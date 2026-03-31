@@ -1,14 +1,14 @@
-# Use OpenJDK 17 base image (Alpine for small size)
-FROM openjdk:17-jdk-alpine
+# Use a maintained OpenJDK 17 image
+FROM eclipse-temurin:17-jdk-alpine
 
-# Set working directory inside container
+# Set working directory
 WORKDIR /app
 
-# Copy the built jar file into the container
+# Copy the JAR
 COPY target/*.jar app.jar
 
-# Expose port 8080 (or your configured port)
+# Expose port
 EXPOSE 8080
 
-# Run the jar file
+# Run the app
 CMD ["java", "-jar", "app.jar"]
